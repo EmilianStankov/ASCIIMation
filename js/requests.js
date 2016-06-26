@@ -3,7 +3,7 @@ $.ajax({
   data: {action: 'new', name: 'sssdad', frames: 'asfasfafasfasfas~#frame#~asfkjakjsfkjasf'},
   type: 'post',
   success: function(output) {
-    $('body').append(output);
+    //$('body').append(output);
   }
 });
 
@@ -12,7 +12,7 @@ $.ajax({
   data: {action: 'edit', name: 'assssdad', frames: 'asfasfafasfasfas~#frame#~asfkjakjsfkjasf'},
   type: 'post',
   success: function(output) {
-    $('body').append(output);
+    //$('body').append(output);
   }
 });
 
@@ -21,7 +21,7 @@ $.ajax({
   data: {action: 'get', name: 'sssdad'},
   type: 'post',
   success: function(output) {
-    $('body').append(output);
+    //$('body').append(output);
   }
 });
 
@@ -30,6 +30,6 @@ $.ajax({
   data: {action: 'getAll'},
   type: 'post',
   success: function(output) {
-    $('body').append(output);
+    //$('body').append(output);
   }
 });
