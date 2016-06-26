@@ -1,6 +1,8 @@
 $(document).ready(function() {
   animation_frames = [];
   current_frame = 0;
+  $("#error").show();
+  $("#error").text("Current frame: " + (current_frame+1));
   bind_events();
   function bind_events() {
     $("button#add_frame").click(add_frame);
@@ -13,19 +15,27 @@ $(document).ready(function() {
   function add_frame() {
     save_frame();
     $("#frame").val("");
-    current_frame++;
+    current_frame = animation_frames.length;
+    $("#error").text("Current frame: " + (current_frame+1));
+    $("#error").css("color", "#7DE82B");
   }
 
   function previous_frame() {
     save_frame();
-    current_frame--;
-    $("#frame").val(animation_frames[current_frame]);
+    if(current_frame > 0) {
+      current_frame--;
+      $("#frame").val(animation_frames[current_frame]);
+      $("#error").text("Current frame: " + (current_frame+1));
+      $("#error").css("color", "#7DE82B");
+    }
   }
 
   function next_frame() {
     save_frame();
     current_frame++;
     $("#frame").val(animation_frames[current_frame]);
+    $("#error").text("Current frame: " + (current_frame+1));
+    $("#error").css("color", "#7DE82B");
   }
 
   function delete_frame() {
@@ -41,13 +51,19 @@ $(document).ready(function() {
     save_frame();
     var frames_data = animation_frames.join("~#frame#~");
     var name_data = $("#name").val();
-    $.ajax({
-      url: '../php/handle_requests.php',
-      data: {action: 'new', name: name_data, frames: frames_data},
-      type: 'post',
-      success: function(output) {
-        //$('body').append(frames_data);
-      }
-    });
+    if(name_data.length > 0) {
+      $.ajax({
+        url: '../php/handle_requests.php',
+        data: {action: 'new', name: name_data, frames: frames_data},
+        type: 'post',
+        success: function(output) {
+          $("#error").text("Saved successfully!");
+          $("#error").css("color", "#7DE82B");
+        }
+      });
+    } else {
+      $("#error").text("Name must be at least 3 characters!");
+      $("#error").css("color", "red");
+    }
   }
 });

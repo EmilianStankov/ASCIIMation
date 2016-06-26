@@ -8,7 +8,7 @@ $(document).ready(function() {
     success: function(output) {
       frames = JSON.parse(output);
       $("#animation_window #play").click(function() {
-        var speed = $("#speed").val();
+        var speed = $("input#speed").val();
         var n = 0;
         for(var i = 0; i < frames.length; i++) {
           setTimeout(function() {
@@ -21,7 +21,9 @@ $(document).ready(function() {
   });
 
   function play_frame(frames, number) {
-    $("body").append(number);
-    $("#player").html(frames[number]);
+    $("div#player").html(frames[number]);
   }
+
+  $("#noise").css('top', $("#player").position().top);
+  $("#noise").css('left', $("#player").position().left);
 });

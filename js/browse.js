@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $("#error").hide();
   animations = $.ajax({
     url: '../php/handle_requests.php',
     data: {action: 'getAll'},

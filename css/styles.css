@@ -1,0 +1,195 @@
+@font-face {
+    font-family: Dotrice;
+    src: url("../fonts/Dotrice-Regular.otf");
+}
+
+body {
+  background: #222421;
+  color: #FFFFFF;
+}
+
+::selection {
+  background: #7DE82B;
+}
+
+h1 {
+  font-family: Dotrice;
+  font-size: 6em;
+  border-bottom: 2px dashed #FFFFFF;
+  text-align: center;
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+ul#menu {
+  list-style-type: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -50px;
+  padding: 0px;
+  width: 410px;
+}
+
+ul#menu li {
+  display: inline;
+}
+
+ul#menu button {
+  width: 200px;
+  height: 30px;
+  background: #000000;
+  color: #FFFFFF;
+  border: 0px;
+  border-bottom: 2px solid #000000;
+}
+
+ul#menu button:hover {
+  border-bottom: 2px solid #FFFFFF;
+}
+
+div#content {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div#animations_list {
+  width: 300px;
+  margin: 0px;
+  float: left;
+}
+
+div.animation_entry, ul#editor_menu button {
+  width: 300px;
+  font-size: 16px;
+  padding: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Dotrice;
+}
+
+div.animation_entry:before {
+  content: "\1F4FA  ";
+}
+
+div.animation_entry:hover, ul#editor_menu button {
+  color: #000000;
+  background: #FFFFFF;
+}
+
+div.animation_entry.selected {
+  color: #7DE82B;
+}
+
+div.animation_entry.selected:hover {
+  background: #000000;
+}
+
+div#player, textarea#frame {
+  background: #000000;
+  color: #7DE82B;
+  outline: none;
+  border: 1px solid #7DE82B;
+  width: 480px;
+  height: 270px;
+  resize: none;
+  overflow: hidden;
+  word-break: break-all;
+  font-family: Dotrice;
+  font-size: 12px;
+  padding: 0px;
+  box-shadow: 0px 0px 5px #7DE82B;
+  float: right;
+  margin-bottom: 20px;
+}
+
+div#player_container {
+  width: 480px;
+  float: right;
+}
+
+div#speed {
+  font-family: Arial;
+  height: 20px;
+  width: 210px;
+  padding: 10px 0px;
+  float: left;
+}
+
+input#speed, input#name {
+  background: #000000;
+  color: #FFFFFF;
+  font-family: Dotrice;
+  border: 0px;
+  border-bottom: 2px solid #FFFFFF;
+  padding: 5px 10px;
+  margin: 7px 0px;
+  width: 100px;
+}
+
+input#name {
+  float: right;
+  font-size: 25px;
+  width: 480;
+}
+
+div#player_container button#play {
+  float: right;
+  font-size: 25px;
+  background: #000000;
+  color: white;
+  border: 0px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+#noise {
+  width: 480px;
+  height: 270px;
+  position: absolute;
+  opacity: 0.1;
+  animation: noiseOpacity 0.5s alternate infinite;
+}
+
+@keyframes noiseOpacity {
+  from {opacity: 0.15;}
+  to {opacity: 0.1;}
+}
+
+ul#editor_menu {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  width: 300px;
+  float: left;
+}
+
+ul#editor_menu button {
+  background: none;
+  color: #FFFFFF;
+  border: 0px;
+  text-align: left;
+}
+
+ul#editor_menu button:hover {
+  background: #FFFFFF;
+  color: #000000;
+  border: 0px;
+  text-align: left;
+}
+
+ul#editor_menu button:focus {
+  background: #000000;
+  color: #7DE82B;
+}
+
+div#error {
+  padding: 0px;
+  width: 310px;
+  float: left;
+  font-family: Dotrice;
+  font-size: 12px;
+  color: #7DE82B;
+}
