@@ -10,7 +10,7 @@
     if($action == 'new') {
       newAnimation($con, $_POST['name'], $_POST['frames']);
     } else if($action == 'edit') {
-      editAnimation($con, $_POST['name'], $_POST['frames']);
+      editAnimation($con, $_POST['name'], $_POST['frames'], $_POST['new_name']);
     } else if($action == 'delete') {
       deleteAnimation($con, $_POST['name']);
     } else if($action == 'get') {
@@ -25,9 +25,9 @@
     mysqli_query($con, "INSERT INTO Animations (Name, Frames) VALUES('".$name."', '".$frames."')");
   }
 
-  function editAnimation($con, $name, $frames) {
+  function editAnimation($con, $name, $frames, $new_name) {
     mysqli_query($con, "CREATE TABLE IF NOT EXISTS Animations(ID int AUTO_INCREMENT PRIMARY KEY, Name varchar(255) UNIQUE, Frames mediumtext);");
-    mysqli_query($con, "UPDATE Animations SET Name='".$name."', Frames='".$frames."' WHERE Name='".$name."';");
+    mysqli_query($con, "UPDATE Animations SET Name='".$new_name."', Frames='".$frames."' WHERE Name='".$name."';");
   }
 
   function deleteAnimation($con, $name) {

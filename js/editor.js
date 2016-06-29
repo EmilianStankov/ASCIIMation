@@ -77,7 +77,7 @@ $(document).ready(function() {
       } else {
         $.ajax({
           url: '../php/handle_requests.php',
-          data: {action: 'edit', name: name_data, frames: frames_data},
+          data: {action: 'edit', name: window.name, frames: frames_data, new_name: name_data},
           type: 'post',
           success: function(output) {
             $("body").append(output);
