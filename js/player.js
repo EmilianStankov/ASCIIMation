@@ -7,15 +7,10 @@ $(document).ready(function() {
     type: 'post',
     success: function(output) {
       frames = JSON.parse(output);
-      $("#animation_window #play").click(function() {
-        var speed = $("input#speed").val();
-        var n = 0;
-        for(var i = 0; i < frames.length; i++) {
-          setTimeout(function() {
-            play_frame(frames, n);
-            n++;
-          }, i * speed);
-        }
+      $("#animation_window #play").click(play);
+
+      $("#animation_window #edit").click(function() {
+        edit(name_data, frames)
       });
     }
   });
@@ -24,6 +19,24 @@ $(document).ready(function() {
     $("div#player").html(frames[number]);
   }
 
-  $("#noise").css('top', $("#player").position().top);
-  $("#noise").css('left', $("#player").position().left);
+  function play() {
+    var speed = $("input#speed").val();
+    var n = 0;
+    for(var i = 0; i < frames.length; i++) {
+      setTimeout(function() {
+        play_frame(frames, n);
+        n++;
+      }, i * speed);
+    }
+  }
+
+  function edit(name, frames) {
+    window.name = name;
+    window.frames = frames;
+    window.editing = true;
+    $("#content").load("../html/editor.html");
+  }
+
+  $("#noise").css('top', $("#player").offset().top);
+  $("#noise").css('left', $("#player").offset().left);
 });

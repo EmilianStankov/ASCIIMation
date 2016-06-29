@@ -134,15 +134,23 @@ input#name {
   width: 480;
 }
 
-div#player_container button#play {
+div#player_container button#play,
+div#player_container button#edit {
   float: right;
   font-size: 25px;
   background: #000000;
-  color: white;
+  color: #FFFFFF;
   border: 0px;
   width: 40px;
   height: 40px;
   border-radius: 10px;
+  margin-left: 10px;
+}
+
+div#player_container button#play:hover,
+div#player_container button#edit:hover {
+  color: #7DE82B;
+  box-shadow: 0px 0px 5px #7DE82B;
 }
 
 #noise {
